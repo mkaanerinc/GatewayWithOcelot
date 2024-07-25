@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.WebHost.UseUrls("http://*:5281");
+
 builder.Services.AddScoped<IReservationService, ReservationService>();
 
 var app = builder.Build();
@@ -21,7 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

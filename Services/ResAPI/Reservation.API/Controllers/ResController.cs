@@ -16,7 +16,7 @@ namespace Reservation.API.Controllers
             _reservationService = reservationService;
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public ReservationDTO Get(int id)
         {
            return _reservationService.GetResByBkgNumber(id);
