@@ -1,3 +1,6 @@
+using Contact.API.Infrastructure;
+using Contact.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,10 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Host.ConfigureWebHostDefaults(webBuilder =>
-{
-    webBuilder.UseUrls("http://*:9000");
-});
+builder.WebHost.UseUrls("http://*:9000");
+
+builder.Services.AddScoped<IContactService,ContactService>();
 
 var app = builder.Build();
 
